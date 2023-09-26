@@ -1,9 +1,9 @@
 import { React } from "react"
 
-export default function Search(){
+export default function Header(){
     return(
         <div>
-            <h3>Search</h3>
+            <h3>MeetMakzz</h3>
         </div>
     )
 }
