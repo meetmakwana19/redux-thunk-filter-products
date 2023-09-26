@@ -3,7 +3,8 @@ import Filter from "./Filter";
 import Cart from "./Cart";
 import Header from "./Header";
 import { useDispatch, useSelector } from "react-redux";
-import { setProducts } from "../redux/actions/ProductsAction";
+import { getApiData } from "../redux/actions/ProductsAction";
+
 
 export default function Products() {
   // not using useState to handle state as now setProducts action is getting used by redux to handle state.
@@ -17,18 +18,18 @@ export default function Products() {
   console.log("Products : ", products);
 
   useEffect(() => {
-    getApiData();
+    dispatch(getApiData());
   }, []);
 
-  const getApiData = async () => {
-    const url = import.meta.env.VITE_APP_API_URL;
-    const response = await fetch(url);
-    const data = await response.json();
-    // setProducts(data);
+  // const getApiData = async () => {
+  //   const url = import.meta.env.VITE_APP_API_URL;
+  //   const response = await fetch(url);
+  //   const data = await response.json();
+  //   // setProducts(data);
 
-    dispatch(setProducts(data));
-    // setFilteredProducts(data);
-  };
+  //   dispatch(setProducts(data));
+  //   // setFilteredProducts(data);
+  // };
 
   const sendID = (id) => {
     console.log("Id is ", id);
